@@ -15,7 +15,10 @@ int solve(int dividend,int divisor)
     while(s<=e)
     {
         if(abs(mid*divisor) == dividend)
-            return mid;
+        {
+            ans = mid ;
+            break;
+        }
         if(abs(mid*divisor) > dividend)
             e = mid - 1;
         else
@@ -25,7 +28,7 @@ int solve(int dividend,int divisor)
         }
         mid = s + (e-s)/2;
     }
-    if(divisor>0 && dividend>0 || divisor<0 && dividend<0)
+    if((divisor>0 && dividend>0) || (divisor<0 && dividend<0))
         return ans;
     else
         return -ans;
@@ -34,7 +37,7 @@ int solve(int dividend,int divisor)
 
 int main()
 {
-    int dividend = 36;
+    int dividend = -36;
     int divisor = 6;
     int ans = solve(dividend,divisor);
     cout<<"Ans is "<<ans<<endl;
